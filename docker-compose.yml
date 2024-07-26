@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  bot:
+    build: .
+    container_name: tgbot
+    restart: always
+    networks:
+      - bot-networks
+    ports:
+      - 4000:4000
+    depends_on:
+      - minio-bot
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6777:6379"
+    env_file:
+      - ./envs/containers.env
+    volumes:
+      - ./redis/data:/root/redis
+      - ./redis/redis.conf:/root/redis
+    networks:
+      - bot-networks
+
+networks:
+  bot-networks:
+    driver: bridge
+
+
+
