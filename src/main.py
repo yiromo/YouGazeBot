@@ -4,6 +4,7 @@ from config import settings
 from aiogram import Bot, Dispatcher, types
 import logging
 from utils.handler import handler
+from bot_youtube.service import tgservice
 
 dp = Dispatcher()
 bot = Bot(token=settings.BOT_API_TOKEN)
