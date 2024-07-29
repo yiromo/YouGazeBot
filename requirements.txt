@@ -1,8 +1,10 @@
 aiogram==3.4.1
 aiohttp==3.9.4
 motor==3.4.0
-pytube
 python-telegram-bot
 python-dotenv
+pydantic_settings
+pytubefix
+youtube-dl
 boto3
 aioredis
