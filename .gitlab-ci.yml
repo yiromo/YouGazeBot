@@ -3,28 +3,28 @@ stages:
   - test
 
 variables:
-  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
 
 setup:
   stage: setup
   image: docker:24.0.5
   services:
-    - docker:24.0.5-dind
+    - name: docker:24.0.5-dind
+      alias: docker
   before_script:
-    - apk add --no-cache curl bash make 
-    - curl -fsSL https://get.docker.com | sh 
-    - docker --version
+    - apk add --no-cache curl bash make docker 
   script:
-    - make docker-download
+    - docker --version
 
 test:
   stage: test
   image: docker:24.0.5
   services:
-    - docker:24.0.5-dind 
+    - name: docker:24.0.5-dind
+      alias: docker
   before_script:
-    - docker info 
-    - make docker-download 
+    - apk add --no-cache curl bash make docker-compose
   script:
     - docker compose up --build -d 
     - sleep 10 
