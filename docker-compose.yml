@@ -23,6 +23,7 @@ services:
     volumes:
       - ./redis/data:/root/redis
       - ./redis/redis.conf:/root/redis
+    command: /bin/sh -c "redis-server --requirepass $$REDIS_HOST_PASSWORD"
     networks:
       - bot-networks
 

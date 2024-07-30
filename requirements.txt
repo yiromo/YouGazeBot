@@ -8,3 +8,5 @@ pytubefix
 youtube-dl
 boto3
 aioredis
+moviepy
+ffmpeg

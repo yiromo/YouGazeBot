@@ -1,2 +1,3 @@
 envs/
 src/.env
+src/testik.py
