@@ -1,0 +1,7 @@
+
+test:
+  before_script:
+    - apt-get update && apt-get install -y make bash
+    - make docker-download
+  script:
+    - docker compose up --build -d
