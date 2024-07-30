@@ -1,7 +1,32 @@
+stages:
+  - setup
+  - test
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+setup:
+  stage: setup
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  before_script:
+    - apk add --no-cache curl bash make 
+    - curl -fsSL https://get.docker.com | sh 
+    - docker --version
+  script:
+    - make docker-download
 
 test:
+  stage: test
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind 
   before_script:
-    - apt-get update && apt-get install -y make bash
-#    - make docker-download
+    - docker info 
+    - make docker-download 
   script:
-    - docker compose up --build -d
+    - docker compose up --build -d 
+    - sleep 10 
+  after_script:
+    - docker compose down 
