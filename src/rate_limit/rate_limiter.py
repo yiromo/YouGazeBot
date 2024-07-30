@@ -1,4 +1,4 @@
-from ..db import redis_client
+from src.db_redis import redis_client
 import time
 
 class RateLimiter:

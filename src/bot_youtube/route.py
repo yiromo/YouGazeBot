@@ -6,7 +6,7 @@ from config import settings
 from bot_youtube.service import tgservice
 import logging
 import re
-from rate_limiter.rate_limiter import RateLimiter
+from rate_limit.rate_limiter import RateLimiter
 from keyboards.reply import Reply
 from keyboards.inline import Inline
 from .downloadstates import DownloadStates

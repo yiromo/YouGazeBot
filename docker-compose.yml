@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   bot:
@@ -18,12 +18,12 @@ services:
     restart: always
     ports:
       - "6777:6379"
-    env_file:
-      - ./envs/containers.env
     volumes:
       - ./redis/data:/root/redis
       - ./redis/redis.conf:/root/redis
     command: /bin/sh -c "redis-server --requirepass $$REDIS_HOST_PASSWORD"
+    env_file:
+      - ./envs/containers.env
     networks:
       - bot-networks
 
