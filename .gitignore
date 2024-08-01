@@ -1,3 +1,4 @@
 envs/
 src/.env
 src/testik.py
+src/parser_test

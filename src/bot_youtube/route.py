@@ -9,7 +9,7 @@ import re
 from rate_limit.rate_limiter import RateLimiter
 from keyboards.reply import Reply
 from keyboards.inline import Inline
-from .downloadstates import DownloadStates
+from utils.downloadstates import DownloadStates
 
 youtube_regex = r'(https?://)?(www\.)?(youtube\.com/watch\?v=|youtu\.be/)[\w-]+'
 

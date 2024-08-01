@@ -10,3 +10,13 @@ boto3
 aioredis
 moviepy
 ffmpeg
+watchfiles==0.22.0
+beautifulsoup4==4.12.3
+lxml
+fake-useragent
+m3u8
+pyktok==0.0.27
+browser-cookie3==0.19.1
+pandas==2.2.2
+streamlit
+TikTokApi
